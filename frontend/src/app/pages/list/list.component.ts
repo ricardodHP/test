@@ -134,6 +134,16 @@ export class ListComponent implements OnInit, OnDestroy {
       });
       // $('[data-toggle="tooltip"]').tooltip();
       $('th, td').css('text-align', 'center');
+      this.initSearch();
+    });
+  }
+
+  initSearch() {
+    $('#search-input').show().on('keyup', function () {
+      const value = $(this).val().toLowerCase();
+      $('table tbody tr').filter(function () {
+        $(this).toggle($(this).text().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').indexOf(value) > -1);
+      });
     });
   }
 
