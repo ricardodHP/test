@@ -1,0 +1,41 @@
+<ng-container *ngIf="display$ | async as display">
+  <section [class.open]="display === 'open'" (click)="close()">
+    <div (click)="$event.stopPropagation()" class="modal-dialog-scrollable mt-lg-5">
+      <div class="modal-content p-3">
+        <div class="w-100 text-right close-modal py-1 d-flex justify-content-between">
+          <h4
+            class="font-weight-bold ml-1" id="modal-title">Add item</h4>
+          <span class="cursor-pointer" (click)="close()">&times;</span>
+        </div>
+        <form (submit)="$event.preventDefault()" [formGroup]="form">
+          <div class="form-row">
+            <div class="col">
+              <label>
+                Name
+                <input
+                  [class.is-invalid]="name.invalid && name.touched"
+                  [class.is-valid]="name.valid"
+                  formControlName="name"
+                  type="text" class="form-control" placeholder="Enter name">
+              </label>
+            </div>
+            <div class="col">
+              Title
+              <label>
+                <input
+                  [class.is-invalid]="title.invalid && title.touched"
+                  [class.is-valid]="title.valid"
+                  formControlName="title"
+                  type="text" class="form-control" placeholder="Enter title">
+              </label>
+            </div>
+          </div>
+          <div class="d-flex justify-content-between my-2">
+            <button class="btn btn-secondary" (click)="close()">Cancel</button>
+            <button class="btn btn-primary" (click)="submit()">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</ng-container>

@@ -127,9 +127,7 @@ exports.updateTodoStatus = (req, res) => {
     }
 
     const todoId = req.params.id;
-    Todo.update({
-        completed: 1
-    }, {
+    Todo.update(req.body, {
         where: {
             id: todoId
         }
@@ -139,7 +137,7 @@ exports.updateTodoStatus = (req, res) => {
             let status = (updatedRecords === 1) ? 200 : 400;
             res.status(status).send({
                 status: status,
-                message: (updatedRecords === 1) ? 'completed status updated successfully' : 'no record updated',
+                message: (updatedRecords === 1) ? 'Completed status updated successfully' : 'no record updated',
             });
         })
         .catch(err => {

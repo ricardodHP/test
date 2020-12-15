@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="card shadow p-5">
+    <h3>Details</h3>
+    <form *ngIf="todo" (submit)="$event.preventDefault()">
+      <div class="form-row">
+        <div class="col-sm-12 col-md-6">
+          <label class="w-100">
+            Name
+            <input
+              name="name"
+              [(ngModel)]="todo.name"
+              type="text" class="form-control" placeholder="Enter name">
+          </label>
+        </div>
+        <div class="col-sm-12 col-md-6">
+          Title
+          <label class="w-100">
+            <input
+              name="title"
+              [(ngModel)]="todo.title"
+              type="text" class="form-control" placeholder="Enter title">
+          </label>
+        </div>
+      </div>
+      <div class="d-flex justify-content-end my-4">
+        <button class="btn btn-secondary px-4 mx-3" [routerLink]="['/home']">Return</button>
+        <button class="btn btn-primary px-4" (click)="submit()">Update</button>
+      </div>
+    </form>
+  </div>
+</div>

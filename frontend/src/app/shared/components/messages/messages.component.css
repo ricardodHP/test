@@ -1,0 +1,27 @@
+.peek-a-bar {
+  padding: 1.5em;
+  opacity: 0.85;
+  top: 0;
+  margin: 0;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  z-index: 100000;
+}
+
+.peek-a-bar.success {
+  background-color: #26bd80 !important;
+}
+
+.peek-a-bar.warning {
+  background-color: #ff7043 !important;
+}
+
+.peek-a-bar.danger {
+  background-color: #ff5252 !important;
+}
